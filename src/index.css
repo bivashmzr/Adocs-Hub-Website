@@ -1,0 +1,294 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Enhanced primary color palette */
+  --color-primary: #2563EB;
+  --color-primary-light: #3B82F6;
+  --color-primary-dark: #1D4ED8;
+  --color-secondary: #4F46E5;
+  --color-accent: #6D28D9;
+  
+  /* Neutral colors for professional look */
+  --color-light: #ffffff;
+  --color-dark: #0F172A;
+  --color-gray-50: #F8FAFC;
+  --color-gray-100: #F1F5F9;
+  --color-gray-200: #E2E8F0;
+  --color-gray-300: #CBD5E1;
+  --color-gray-400: #94A3B8;
+  --color-gray-500: #64748B;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-gray-800: #1E293B;
+  
+  /* Enhanced shadows */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.03), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  
+  /* Animation timing */
+  --transition-slow: 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base typography with variable fonts */
+body {
+  font-family: "Inter Variable", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  color: var(--color-gray-700);
+  background: var(--color-gray-50);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced text styling */
+.accent-text {
+  @apply text-primary-600 font-medium tracking-wide;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-secondary-600 font-bold;
+}
+
+/* Button and input styling with more depth */
+.button {
+  @apply inline-flex items-center justify-center px-4 py-2.5 rounded-lg font-medium bg-primary-600 text-white shadow-sm transition-all duration-300 relative overflow-hidden;
+}
+
+.button-hover {
+  @apply hover:bg-primary-700 hover:shadow-md hover:translate-y-[-1px] active:translate-y-[0px] active:shadow-sm;
+}
+
+.button-secondary {
+  @apply inline-flex items-center justify-center px-4 py-2.5 rounded-lg font-medium bg-white border border-gray-200 text-gray-700 shadow-sm transition-all duration-300;
+}
+
+.button-secondary-hover {
+  @apply hover:bg-gray-50 hover:border-gray-300 hover:shadow-md active:bg-gray-100;
+}
+
+.input-field {
+  @apply w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500 transition-all duration-300 text-gray-800 shadow-sm;
+}
+
+/* Input fields with icons - fixing the placeholder overlap issue */
+input.input-field[type="email"]::placeholder,
+input.input-field[type="password"]::placeholder,
+input.input-field[type="text"]::placeholder {
+  padding-left: 12px; /* Add space between icon and placeholder text */
+  opacity: 0.7;
+}
+
+.auth-button {
+  @apply w-full py-3 px-4 rounded-lg text-white font-medium bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 hover:shadow-md transition-all duration-300;
+}
+
+.link-text {
+  @apply text-primary-600 hover:text-primary-700 hover:underline font-medium transition-colors;
+}
+
+/* Card styling with improved depth */
+.glass-card {
+  @apply bg-white/90 backdrop-blur-sm border border-gray-100 rounded-xl shadow-sm transition-all duration-300;
+}
+
+.glass-card-hover {
+  @apply hover:shadow-md hover:border-gray-200 hover:translate-y-[-2px];
+}
+
+.feature-card {
+  @apply p-6 rounded-xl border border-gray-100 bg-white shadow-sm transition-all duration-300;
+}
+
+/* Animation effects with more sophistication */
+.hover-lift {
+  @apply transition-transform duration-300 hover:translate-y-[-3px] hover:shadow-md;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-[1.02];
+}
+
+/* Gradient backgrounds - more subtle and professional */
+.hero-gradient {
+  background: linear-gradient(135deg, #2563EB 0%, #4F46E5 100%);
+}
+
+.section-gradient {
+  background: linear-gradient(180deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
+}
+
+/* Professional container styling */
+.content-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section-container {
+  @apply py-12 md:py-16 lg:py-24;
+}
+
+/* Enhanced Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.float-animation {
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.02); }
+}
+
+.pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.5s ease-out forwards;
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+
+@keyframes blur-in {
+  from { filter: blur(8px); opacity: 0; }
+  to { filter: blur(0); opacity: 1; }
+}
+
+.blur-in {
+  animation: blur-in 0.7s ease-out forwards;
+}
+
+/* Staggered animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Professional icon styling */
+.icon-container {
+  @apply p-3 rounded-lg bg-primary-50 text-primary-600 shadow-sm inline-flex items-center justify-center transition-colors duration-300;
+}
+
+/* Enhanced Micro-interactions */
+.hover-glow {
+  @apply transition-all duration-300;
+  box-shadow: 0 0 0 rgba(37, 99, 235, 0);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.15);
+}
+
+/* Button ripple effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+
+.ripple:active:after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+/* Responsive breakpoints */
+@screen md {
+  .section-title {
+    @apply text-4xl;
+  }
+}
+
+/* Accessible focus styling */
+:focus-visible {
+  @apply outline-none ring-2 ring-primary-500;
+}
+
+/* Extending tailwind colors for our custom palette */
+@layer base {
+  :root {
+    --color-primary-50: 240 249 255;    /* blue-50 */
+    --color-primary-100: 224 242 254;   /* blue-100 */
+    --color-primary-200: 186 230 253;   /* blue-200 */
+    --color-primary-300: 125 211 252;   /* blue-300 */
+    --color-primary-400: 56 189 248;    /* blue-400 */
+    --color-primary-500: 14 165 233;    /* blue-500 */
+    --color-primary-600: 2 132 199;     /* blue-600 */
+    --color-primary-700: 3 105 161;     /* blue-700 */
+    --color-primary-800: 7 89 133;      /* blue-800 */
+    --color-primary-900: 12 74 110;     /* blue-900 */
+    
+    --color-secondary-50: 238 242 255;  /* indigo-50 */
+    --color-secondary-100: 224 231 255; /* indigo-100 */
+    --color-secondary-200: 199 210 254; /* indigo-200 */
+    --color-secondary-300: 165 180 252; /* indigo-300 */
+    --color-secondary-400: 129 140 248; /* indigo-400 */
+    --color-secondary-500: 99 102 241;  /* indigo-500 */
+    --color-secondary-600: 79 70 229;   /* indigo-600 */
+    --color-secondary-700: 67 56 202;   /* indigo-700 */
+    --color-secondary-800: 55 48 163;   /* indigo-800 */
+    --color-secondary-900: 49 46 129;   /* indigo-900 */
+  }
+}
