@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3B82F6" />
+    <meta name="description" content="Convert, merge, and manage documents with our powerful, free online tools. No registration required for PDF to Word, Image to PDF, and more." />
+    
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://admin.adocshub.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://impartial-albatross-346.convex.cloud" crossorigin />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Critical CSS inline for mobile -->
+    <style>
+      body {margin: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background-color: #f9fafb;}
+      .seo-header {position: absolute; top: 0; left: -9999px; height: 1px; width: 1px; overflow: hidden;}
+      #root {display: flex; flex-direction: column; min-height: 100vh;}
+      .loading {display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);}
+      .loading-logo-container {display: flex; align-items: center; margin-bottom: 24px;}
+      .loading-logo-icon {width: 40px; height: 40px; margin-right: 12px;}
+      .loading-logo-text {font-size: 28px; font-weight: bold; background: linear-gradient(90deg, #3B82F6, #6366F1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+      .loading-spinner {width: 40px; height: 40px; border: 3px solid rgba(99, 102, 241, 0.1); border-radius: 50%; border-left-color: #3B82F6; animation: spinner 1s linear infinite;}
+      .loading-text {margin-top: 16px; font-size: 14px; color: #6B7280; animation: pulse 2s infinite;}
+      @keyframes spinner {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}
+      @keyframes pulse {0%, 100% {opacity: 1;} 50% {opacity: 0.5;}}
+      
+      /* Mobile layout fixes */
+      @media (max-width: 640px) {
+        /* Fix conversion results layout on mobile */
+        .space-y-4 > .border.rounded-lg.p-4.space-y-4 > div.flex.items-center.justify-between {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        .space-y-4 > .border.rounded-lg.p-4.space-y-4 > div.flex.items-center.justify-between > div.flex.gap-2 {
+          align-self: flex-start;
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          gap: 8px !important;
+        }
+        /* Make buttons more tappable */
+        a.text-indigo-500, a.bg-indigo-500 {
+          padding: 8px 12px !important;
+          text-align: center;
+        }
+        /* Adjust View button spacing */
+        a.text-indigo-500 {
+          margin-right: 4px;
+        }
+        
+        /* Give more spacing at the bottom for the fixed mobile back button */
+        main {
+          padding-bottom: 80px !important;
+        }
+        
+        /* Make the header back button more visible on small screens */
+        .BackToToolsButton {
+          padding: 8px 12px !important;
+          font-size: 14px !important;
+        }
+        
+        /* Ensure the merge button is big enough to tap */
+        button.bg-indigo-600 {
+          padding: 10px 16px !important;
+          font-size: 16px !important;
+        }
+        
+        /* Add safe area inset for iOS devices */
+        .fixed.bottom-4 {
+          padding-bottom: env(safe-area-inset-bottom, 0px);
+          bottom: env(safe-area-inset-bottom, 16px);
+        }
+      }
+    </style>
+    
+    <!-- Deferred CSS loading -->
+    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/src/index.css" /></noscript>
+
+    <title>Adocshub - Document Conversion Tools & Utilities | Easy & Reliable</title>
+
+    <!-- Preload key resources -->
+    <link rel="preload" as="image" href="/og-preview.jpg" />
+    <meta property="og:image" content="/og-preview.jpg" />
+    <meta property="og:title" content="Adocshub - Document Conversion Tools" />
+    <meta property="og:description" content="Convert, merge, and manage documents with our powerful, free online tools. No registration required." />
+    <meta property="og:type" content="website" />
+    
+    <!-- Optimized Google Analytics -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          // Only load analytics for non-bots
+          if (!/bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent)) {
+            var script = document.createElement('script');
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VYED6KXWFV';
+            script.async = true;
+            document.head.appendChild(script);
+            
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VYED6KXWFV', {
+              'send_page_view': false,
+              'optimization_id': 'reduce_unused_js'
+            });
+            
+            // Delayed page view tracking to improve core metrics
+            setTimeout(function() {
+              gtag('event', 'page_view');
+            }, 2500);
+          }
+        }, 3000); // Delay analytics by 3 seconds
+      });
+    </script>
+    
+    <!-- Handle browser back button -->
+    <script>
+      window.addEventListener('load', function() {
+        // Detect when users press the hardware back button on mobile
+        window.addEventListener('popstate', function(event) {
+          // If there's no state, user likely used hardware back button
+          if (!event.state) {
+            // Check if we need to go back to tools list
+            const backToToolsBtn = document.querySelector('.BackToToolsButton');
+            if (backToToolsBtn) {
+              backToToolsBtn.click();
+            }
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1 class="seo-header">Adocshub - Document Conversion Tools & Utilities</h1>
+    <div id="root">
+      <!-- Enhanced loading spinner with branding -->
+      <div class="loading">
+        <div class="loading-logo-container">
+          <svg class="loading-logo-icon" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="512" height="512" rx="128" fill="url(#paint0_linear)"/>
+            <path d="M346 166H266C262.287 166 259.276 169.011 259.276 172.724V212.276C259.276 215.989 262.287 219 266 219H346C349.713 219 352.724 215.989 352.724 212.276V172.724C352.724 169.011 349.713 166 346 166Z" fill="white"/>
+            <path d="M346 239H166C162.287 239 159.276 242.011 159.276 245.724V285.276C159.276 288.989 162.287 292 166 292H346C349.713 292 352.724 288.989 352.724 285.276V245.724C352.724 242.011 349.713 239 346 239Z" fill="white" fill-opacity="0.8"/>
+            <path d="M346 312H166C162.287 312 159.276 315.011 159.276 318.724V358.276C159.276 361.989 162.287 365 166 365H346C349.713 365 352.724 361.989 352.724 358.276V318.724C352.724 315.011 349.713 312 346 312Z" fill="white" fill-opacity="0.6"/>
+            <defs>
+              <linearGradient id="paint0_linear" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#3B82F6"/>
+                <stop offset="1" stop-color="#6366F1"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="loading-logo-text">AdocsHub</div>
+        </div>
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading powerful document tools...</div>
+      </div>
+    </div>
+    
+    <!-- Main application script with optimized loading -->
+    <script type="module" src="/src/main.tsx" defer></script>
+    
+    <!-- Performance optimization script -->
+    <script>
+      // Mark performance timing for debugging
+      performance.mark('app-load-start');
+      
+      // Detect slow connections and show appropriate messaging
+      if (navigator.connection && navigator.connection.effectiveType) {
+        if (['slow-2g', '2g', '3g'].includes(navigator.connection.effectiveType)) {
+          document.querySelector('.loading-text').textContent = 'Loading on slower connection...';
+        }
+      }
+      
+      // Add script error handling
+      window.addEventListener('error', function(event) {
+        // Check if error is related to Convex WebSocket
+        if (event.message && event.message.includes('convex') && event.message.includes('WebSocket')) {
+          console.warn('Handling Convex WebSocket error, will retry connection');
+          // The Convex client has built-in reconnection logic, but this helps with error reporting
+        }
+      });
+    </script>
+  </body>
+</html>
